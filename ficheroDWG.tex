@@ -6,7 +6,7 @@ Como ya se ha mencionado anteriormente, el formato de fichero DWG es un formato 
 
 \item{Un fichero DWG se compone de diferentes capas de información. Una capa es el objeto contenedor básico de elementos de AutoCad. Al menos siempre existe una capa, la denominada capa cero. El fichero puede contener cuantas capas desee el usuario.}
 
-\item{Un fichero DWG se compone a su vez de diferentes bloques. Un bloque se forma a partir de uno o varios objetos combinados para crear un único objeto. Los objetos se distribuyen a través de las diferentes capas existentes en el fichero. Los bloques ayudan a volver a utilizar objetos en el mismo dibujo o en otros distintos. En todo fichero DWG existe al menos un bloque denominado \textit{Model Space} donde se guardan todos los objetos que crea el usuario si no indica que forman parte de un bloque diferente. 
+\item{Un fichero DWG se compone a su vez de diferentes bloques. Un bloque se forma a partir de uno o varios objetos combinados para crear un único objeto. Los objetos se distribuyen a través de las diferentes capas existentes en el fichero. Los bloques ayudan a volver a utilizar objetos en el mismo dibujo o en otros distintos. En todo fichero DWG existe al menos un bloque denominado \textit{Model Space} donde se guardan todos los objetos que crea el usuario si no indica que forman parte de un bloque diferente.}
 
 \end{itemize}
 
@@ -26,21 +26,22 @@ Esa organización conceptual se traslada físicamente al fichero de forma que en
 
 A continuación se muestra un esquema de la organización de un fichero DWG:
 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
-\includegraphics[width=12cm]{imgs/dwgFile}
+\includegraphics[height=8cm]{imgs/dwgFile}
 \caption{Esquema del contenido de un fichero DWG.}
 \end{center}
 \end{figure}
 
+Cada elemento dentro de un fichero DWG contiene dos identificadores que permiten referenciar el objeto:
 
-%\begin{itemize}
+\begin{itemize}
 
-%\item{ObjetcId: Identificador único por instancia de AutoCAD. Un mismo fichero DWG abierto en dos instancias simultáneamente de AutoCAD tendrá dos ObjectID diferentes para cada una de las entidades, uno para cada instancia. Este identificador no es persistente y cada vez que se abre el fichero cambia.}
+\item{ObjetcId: Identificador único por instancia de AutoCAD. Un mismo fichero DWG abierto en dos instancias simultáneamente de AutoCAD tendrá dos ObjectID diferentes para cada una de las entidades, uno para cada instancia. Este identificador no es persistente y cada vez que se abre el fichero cambia.}
 
-%\item{HandleId: Identificador que puede no ser único por instancia de AutoCAD pero es persistente. Cada vez que se abre el fichero DWG, cada objeto tiene siempre el mismo valor para este identificador.}
+\item{HandleId: Identificador que puede no ser único por instancia de AutoCAD pero es persistente. Cada vez que se abre el fichero DWG, cada objeto tiene siempre el mismo valor para este identificador.}
 
-%\end{itemize}
+\end{itemize}
 
 
 
