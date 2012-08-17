@@ -1,9 +1,17 @@
 \section{Contexto.}
 
-El contexto de este proyecto de SSII se engloba dentro del amplio mundo del \textit{Aprendizaje Automatico} y del\textit{Reconocimiento de formas}. En concreto, en la aplicación práctica del conocimiento extenso desarrollado en estas áreas, a la optimización y desarrollo del sistema de transporte aereo.
+El contexto de este proyecto de SSII se engloba dentro del amplio mundo del \textit{Aprendizaje Automatico} y del\textit{Reconocimiento de formas}. En concreto, en la aplicación práctica del amplio conocimiento desarrollado en ambas áreas, a la optimización y desarrollo del sistema de transporte aereo.
 
-El coste de desarrollar nuevas y mejores infraestructuras para el sistema de transporte aereo es muy elevado. Requiere de grandes inversiones y los plazos de ejecución suelen ser muy largos. Esto requiere que todas las inversiones sean analizadas y estudiadas en un alto grado de detalle antes de ser aprobadas y puestas en ejecución para tratar de garantizar de la mejor forma posible el éxito de las mismas.
+El coste de desarrollar nuevas y mejores infraestructuras para el sistema de transporte aereo es muy elevado. Requiere de grandes inversiones y los plazos de ejecución suelen ser muy largos. Esto requiere que todas las inversiones sean analizadas y estudiadas en un alto grado de detalle antes de ser aprobadas y puestas en ejecución para tratar de garantizar el éxito de las mismas.
 
 Para ello, las organizaciones punteras y grandes compañías del sector, estan desarrollando y trabajando con diferentes herramientas de simulación en tiempo acelerado, que permiten simular y estudiar el comportamiento y el rendimiento de las nuevas infraestructuras sin necesidad de haberlas construido, de forma que se puede estimar el rendimiento que se obtendrá de las mismas, detectar posibles fallos o encontrar puntos de mejora previos a la ejecución de las mismas.
 
-Todas estas herramientas de simuluación toman como punto de partida 
+Todas estas herramientas de simulación toman como punto de partida ficheros de CAD \cite{CAD} con la descripción física de la infraestructura a probar. Estos ficheros de CAD deben cumplir una serie de especificaciones muy concretas para poder ser interpretados correctamente por los simuladores y poder realizar las valoraciones adecuadas de cada uno de los diseños. En la realización de estos diseños CAD existe un peso importante del factor humano. Los diseñadores conocen las guias y tratan de aplicarlas pero en diseños muy complejos, no siempre siguen la guía de estilo al completo y se ajustan al cien por cien a las especificaciones. 
+
+Este hecho dificulta enormemente el procedimiento de trabajo con los simuladores puesto que exige revisar completamente y ajustar el fichero original ideado por el diseñador a las especificaciones del mismo. Muchas veces esta tarea supone una gran cantidad de horas de trabajo del diseñador y del personal encargado de la simulación con el coste asociado que esto conlleva \cite{Mariscal-2005}.
+
+Este proyecto de SSII forma parte de una solución global que trata de minimizar ese trabajo, introduciendo procedimientos software automáticos que puedan realizar ese trabajo de limpieza y ordenación de los diseños de nuevas infraestructuras con la mínima interacción humana posible.
+
+Esta solución global ya ha sido planteada y probada en \cite{Miguel-Munoz} y en alguna otra práctica de Sistemas Informáticos \cite{Miguel-Munoz-SSII} \cite{Javier-Cabrera-SSII}
+
+Dentro del mundo del CAD existe una empresa lider el mercado cuyos productos tienen una importante cuota de mercado y son considerados un estandar de facto, la empresa Autodesk con su software de diseño asistido por ordenador AutoCAD como producto estrella, con sus múltiples variantes y adaptaciones a diferentes sectores del diseño industrial y de la construcción. Todos los productos de esta compañía trabajan con un formato de archivo denominado DWG \cite{DWG-file-history}. Es un formato propietario, con múltiples versiones, asociadas a las diferentes versiones de los productos que desde 1982 ha sacado Autodesk al mercado. 
