@@ -1,0 +1,27 @@
+\section{Formato de fichero DWG.}
+
+Como ya se ha mencionado anteriormente, el formato de fichero DWG es un formato de fichero propietario, propiedad de la empresa Autodesk y no existe mucha información pública sobre el mismo. El fichero puede entenderse conceptualmente como una base de datos de objetos, muchos de ellos, con información geométrica asociada. Es una base de datos jerárquica donde todos los elementos tienen un identificador único. Se distinguen dos identificadores por objeto:
+
+\begin{itemize}
+
+\item{ObjetcId: Identificador único por instancia de AutoCAD. Un mismo fichero DWG abierto en dos instancias simultáneamente de AutoCAD tendrá dos ObjectID diferentes para cada una de las entidades, uno para cada instancia. Este identificador no es persistente y cada vez que se abre el fichero cambia.}
+
+\item{HandleId: Identificador que puede no ser único por instancia de AutoCAD pero es persistente. Cada vez que se abre el fichero DWG, cada objeto tiene siempre el mismo valor para este identificador.}
+
+\end{itemize}
+
+El fichero esta organizado en cuatro grandes secciones:
+
+\begin{itemize}
+
+\item{Sección de capas. Identificador que puede no ser único por instancia de AutoCAD pero es persistente. Cada vez que se abre el fichero DWG, cada objeto tiene siempre el mismo valor para este identificador.}
+
+\item{Sección de bloques: Sección que contiene todos los bloques con todos los elementos }
+
+
+\item{Sección de otras tablas. Identificador que puede no ser único por instancia de AutoCAD pero es persistente. Cada vez que se abre el fichero DWG, cada objeto tiene siempre el mismo valor para este identificador.}
+
+\item{Sección de diccionarios. Identificador que puede no ser único por instancia de AutoCAD pero es persistente. Cada vez que se abre el fichero DWG, cada objeto tiene siempre el mismo valor para este identificador.}
+
+\end{itemize}
+
