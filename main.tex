@@ -1,4 +1,5 @@
 \documentclass[a4paper,10pt,onecolumn,oneside,titlepage]{article}
+
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
@@ -7,6 +8,7 @@
 \renewcommand{\baselinestretch}{1.5}
 \addtolength{\parindent}{0pt}
 \addtolength{\parskip}{\baselineskip}
+\bibliographystyle{acm}
 
 \title{Memoria Final - Sistemas Informáticos}
 \author{Ignacio Robledo Rosell \\
@@ -20,13 +22,16 @@
 \maketitle
 
 \tableofcontents
-\newpage
 
-\input{introduccion}
-\input{ficheroDWG}
-\newpage
+\newpage \input{introduccion}
+\newpage \input{ficheroDWG}
+\newpage \input{herramientas}
+\newpage \input{alcance}
+%\newpage \input{desarrollos}
+%\newpage \input{lineasFuturas}
+%\newpage \input{ap1-ejemploUso}
+%\newpage \input{ap2-ejemploSalida}
 
-\bibliographystyle{acm}
 \newpage \bibliography{references}
 \newpage \listoffigures
 %\listoftables

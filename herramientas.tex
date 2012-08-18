@@ -1,0 +1,76 @@
+\section{Herramientas para manipular ficheros DWG.}
+
+Se ha establecido como requisito inicial que el proceso de extracción sea desarrollado con tecnología Java, dado que es una tecnología fiable y muy extendida y compatible con múltiples plataformas hardware / software. 
+
+Con este requisito, se ha realizado una búsqueda de todas las herramientas disponibles en el mercado, libres / propietarias, gratuitas / con licencia, que permiten el manipulado, en modo lectura al menos, de un fichero con formato DWG. En esta búsqueda se han identificado las siguientes alternativas:
+
+\begin{itemize}
+
+\item{RealDWG \cite{RealDWG}: librería licenciada por la propia empresa AutoDesk para desarrollar software que pueda trabajar con ficheros DWG de una forma sencilla y documentada. Tiene un coste de licencia elevado, sobre los 5.000 dolares, y el proyecto en el que vaya a ser utilizada debe ser validado y autorizado por la propia empresa AutoDesk.}
+
+\item{LibDWG \cite{LibDWG}: librería de código abierto desarrollada en lenguaje C que en teoría permite el acceso en modo lectura a un fichero DWG. El desarrollo de la misma se detuvo en Julio del 2009 y no existe una versión estable ni documentación ni ejemplos suficientes para su utilización.}
+
+\item{LibreDWG \cite{LibreDWG}: librería de código abierto desarrollada por la comunidad GNU y basada en los desarrollos anteriores de LibDWG. El desarrollo de la misma esta en una fase alpha, no estable aún, y no existe una API correctamente documentada para trabajar con la misma. También esta desarrollada en lenguaje C.}
+
+\item{DWGDirect \cite{OpenDWG}: librería desarrollada por la \"Open Design Alliance\". Esta librería solo esta accesible para socios de la organización.}
+
+\end{itemize}
+
+Las conclusiones de la búsqueda no son muy satisfactorias. No parece existir una alternativa real y consolidada más alla de licenciar a la propia compañía AutoDesk el kit de desarrollo RealDWG. Ninguna alternativa de las mencionadas anteriormente contempla Java como tecnología a utilizar.
+
+La \"Open Design Alliance\" no publica su librería para trabajar con ficheros DWG fuera de sus socios y miembros pero sin embargo publica y libera periódicamente una especificación del formato interno del fichero DWG. Esta especificación se obtiene a través de mecanismos de ingeniería inversa. La última especificación disponible aparentemente da soporte a los formatos del fichero DWG desde la versión 13 de AutoCAD hasta las versiones 2010-2012. 
+
+Analizando la situación se opta por desarrollar un interprete nativo en Java, siguiendo las especificaciones publicadas por la \"Open Design Alliance\". Tras unos dias de intenso desarrollo, empieza a ser una realidad que esta elección no es la mejor, dado que las especificaciones son complejas, incompletas y va a requerir mucho más tiempo del planificado, desarrollar una libreria Java capaz de interprentar minimamente un fichero con formato DWG, superando con creces el alcance de un proyecto de SSII.
+
+Llegado este punto, se realiza una nueva valoración de las alternativas ya expuestas anteriormente. Se valorá la posibilidad de trabajar con la librería LibreDWG, aunque no sea bajo la tecnología Java, dado que lo importante para el proyecto es ser capaces de extraer la información del fichero DWG y ponerla a disposición de otros sistemas informáticos en un formato legible y sencillo de tratar. La tecnología debe ser un medio y no un fin en si mismo. Una vez tomada la decisión de abandonar Java como lenguaje de programación, se realiza una nueva búsqueda y se encuentra una posible alternativa no localizada en la primera selección de herramientas. 
+
+Se localiza la librería ObjectARX \cite{ObjectARX}, librería proporcionada por la propía compañía AutoDesk para el desarrollo de plugins para su colección de herramientas, incluyendo el propio AutoCAD. Permite el desarrollo de los plugins en lenguaje C++ y en lenguajes disponibles en la plataforma .NET (C\# y VB .NET). Y lo mas importante, proporciona una API bien documentada y estable para el acceso y manipulado de ficheros DWG.
+
+Dado que el formato DWG y el AutoCAD son un estandar de facto en el sector de las infraestructuras aeronáuticas, se presupone que los usuarios finales del proceso extractor dispondran del propio software AutoCAD. Por ello, finalmente, se decide desarrollar el proceso extractor como un plugin que trabajará directamente en la propia herramienta AutoCAD y será desarrollado con tecnología .NET, en concreto C\#. 
+
+Estos nuevos requerimientos difieren técnicamente de los inicialmente propuestos pero dada la escasa viabilidad del planteamiento inicial se ha procedido a buscar una solución que permita obtener resultados funcionales completamente funcionales y adaptar los requisitos técnicos a la propuesta más viable.
+
+\section{¿Cómo trabaja un plugin para AutoCAD?.}
+
+La propia empresa AutoDesk proporciona los materiales necesarios para que sus usuarios desarrollen sus propios plugins y puedan personalizar y extender las funcionalidades de sus herramientas. Con un enfoque comercial muy interesante, si un usuario consigue sentirse comodo y personalizar una herramienta de forma sencilla, conseguiras retenerle de una forma simple y conseguir que continue trabajando con tu herramienta de forma sistemática en el tiempo.
+
+En concreto, la propia empresa AutoDesk justifica su elección de la plataforma .NET para dotar de estas capacidades al usuario de sus herramientas:
+
+\begin{itemize}
+
+\item{.NET es una herramienta de desarrollo estandarizada en el mercado y soportada por una gran compañía como es Microsoft.}
+
+\item{.NET proporciona una gran colección de librerias y métodos listos para ser usados dentro del entorno de ejecución de .NET}
+
+\item{Rápida curva de aprendizaje, en poco tiempo estas completando tus primeros desarrollos.}
+
+\item{Buen soporte de tipos: tipos básicos y tipos más complejos, como colecciones.}
+
+\item{Buen entorno de desarrollo, con sus versiones gratis y profesionales.}
+
+\end{itemize}
+
+La tecnología .NET es usada en la mayoría de los productos de la compañía AutoDesk. La mayoría de los productos exponen sus funcionalidades a través de una API bien documentada en tecnología .NET.
+
+El proceso de desarrollo es bastante sencillo. Tan solo hay que seguir los siguientes pasos:
+
+\begin{itemize}
+
+\item{Referenciar en el proyecto las dos librerias a través de las que el producto AutoCAD expone sus servicios al entorno .NET: AcDbMgd.dll y AcMgd.dll.}
+
+\item{Desarrollar el código del plugin con el lenguaje escogido y las librerias estandar proporcionadas por el entorno .NET, la API proporcionada por AutoCAD y cualquier API de terceros que se pueda necesitar.}
+
+\item{Compilar el proyecto y generar un ensamblado final con todos los componentes, archivo .DLL}
+
+\item{Cargar el ensamblado desde el entorno .NET a través del comando NETLOAD.}
+
+\item{Invocar el comando o comandos definidos en el plugin.}
+
+\end{itemize}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[height=8cm]{imgs/plugin}
+\caption{Esquema del proceso de desarrollo de un plugin para AutoCAD.}
+\end{center}
+\end{figure}
