@@ -12,15 +12,15 @@ Con este requisito, se ha realizado una búsqueda de todas las herramientas disp
 
 \item{LibreDWG \cite{LibreDWG}: librería de código abierto desarrollada por la comunidad GNU y basada en los desarrollos anteriores de LibDWG. El desarrollo de la misma esta en una fase alpha, no estable aún, y no existe una API correctamente documentada para trabajar con la misma. También esta desarrollada en lenguaje C.}
 
-\item{DWGDirect \cite{OpenDWG}: librería desarrollada por la \"Open Design Alliance\". Esta librería solo esta accesible para socios de la organización.}
+\item{DWGDirect \cite{OpenDWG}: librería desarrollada por la <<Open Design Alliance>>. Esta librería solo esta accesible para socios de la organización.}
 
 \end{itemize}
 
 Las conclusiones de la búsqueda no son muy satisfactorias. No parece existir una alternativa real y consolidada más alla de licenciar a la propia compañía AutoDesk el kit de desarrollo RealDWG. Ninguna alternativa de las mencionadas anteriormente contempla Java como tecnología a utilizar.
 
-La \"Open Design Alliance\" no publica su librería para trabajar con ficheros DWG fuera de sus socios y miembros pero sin embargo publica y libera periódicamente una especificación del formato interno del fichero DWG. Esta especificación se obtiene a través de mecanismos de ingeniería inversa. La última especificación disponible aparentemente da soporte a los formatos del fichero DWG desde la versión 13 de AutoCAD hasta las versiones 2010-2012. 
+La <<Open Design Alliance>> no publica su librería para trabajar con ficheros DWG fuera de sus socios y miembros pero sin embargo publica y libera periódicamente una especificación del formato interno del fichero DWG. Esta especificación se obtiene a través de mecanismos de ingeniería inversa. La última especificación disponible aparentemente da soporte a los formatos del fichero DWG desde la versión 13 de AutoCAD hasta las versiones 2010-2012. 
 
-Analizando la situación se opta por desarrollar un interprete nativo en Java, siguiendo las especificaciones publicadas por la \"Open Design Alliance\". Tras unos dias de intenso desarrollo, empieza a ser una realidad que esta elección no es la mejor, dado que las especificaciones son complejas, incompletas y va a requerir mucho más tiempo del planificado, desarrollar una libreria Java capaz de interprentar minimamente un fichero con formato DWG, superando con creces el alcance de un proyecto de SSII.
+Analizando la situación se opta por desarrollar un interprete nativo en Java, siguiendo las especificaciones publicadas por la <<Open Design Alliance>>. Tras unos dias de intenso desarrollo, empieza a ser una realidad que esta elección no es la mejor, dado que las especificaciones son complejas, incompletas y va a requerir mucho más tiempo del planificado, desarrollar una libreria Java capaz de interprentar minimamente un fichero con formato DWG, superando con creces el alcance de un proyecto de SSII.
 
 Llegado este punto, se realiza una nueva valoración de las alternativas ya expuestas anteriormente. Se valorá la posibilidad de trabajar con la librería LibreDWG, aunque no sea bajo la tecnología Java, dado que lo importante para el proyecto es ser capaces de extraer la información del fichero DWG y ponerla a disposición de otros sistemas informáticos en un formato legible y sencillo de tratar. La tecnología debe ser un medio y no un fin en si mismo. Una vez tomada la decisión de abandonar Java como lenguaje de programación, se realiza una nueva búsqueda y se encuentra una posible alternativa no localizada en la primera selección de herramientas. 
 
@@ -68,7 +68,7 @@ El proceso de desarrollo es bastante sencillo. Tan solo hay que seguir los sigui
 
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[height=8cm]{imgs/plugin}
 \caption{Esquema del proceso de desarrollo de un plugin para AutoCAD.}

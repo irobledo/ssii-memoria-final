@@ -4,6 +4,8 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage[left=2cm,right=2cm,top=2cm]{geometry}
+\usepackage{float}
+\usepackage{listings}
 
 \renewcommand{\baselinestretch}{1.5}
 \addtolength{\parindent}{0pt}
@@ -15,7 +17,14 @@
 				g990406}
 \date{17 de Agosto de 2012}
 
-%\includeonly{introduccion,descripcion_general,tareas,gantt,propuesta_tutor}
+\includeonly{
+	introduccion,
+	ficheroDWG,
+	herramientas,
+	alcance,
+	desarrollos,
+	lineasFuturas
+}
 
 \begin{document}
 
@@ -23,14 +32,15 @@
 
 \tableofcontents
 
-\newpage \input{introduccion}
-\newpage \input{ficheroDWG}
-\newpage \input{herramientas}
-\newpage \input{alcance}
-%\newpage \input{desarrollos}
-\newpage \input{lineasFuturas}
-\newpage \input{ap1-ejemploUso}
-%\newpage \input{ap2-ejemploSalida}
+\include{introduccion}
+\include{ficheroDWG}
+\include{herramientas}
+\include{alcance}
+\include{desarrollos}
+\include{pruebas}
+\include{lineasFuturas}
+\include{ap1-ejemploUso}
+\include{ap2-ejemploSalida}
 
 \newpage \bibliography{references}
 \newpage \listoffigures

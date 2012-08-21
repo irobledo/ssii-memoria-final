@@ -1,0 +1,43 @@
+\section{Desarrollo.}
+El Sistema Informático desarrollado se compone de 3 módulos / elementos que de forma conjunta proveen de la funcionalidad necesaria a AutoCAD para exportar los elementos del fichero DWG a un fichero en un formato XML. Estos módulos se apoyan en los siguientes componentes que el propio AutoCAD expone a disposición de los desarrolladores:
+
+\begin{itemize}
+
+\item{AutoDesk.AutoCAD.Runtime: este módulo inicializa los servicios de la aplicación cliente y las factorias que producen los diferentes objetos para ser utilizados dentro del entorno .NET.}
+
+\item{AutoDesk.AutoCAD.ApplicationServices: este módulo permite la interacción con la aplicación AutoCAD. Provee acceso a los módulos adicionales como el editor, el gestor de documentos, ventana principal, etc.}
+
+\item{AutoDesk.AutoCAD.DatabaseServices: esto módulo permite la interacción con el fichero de dibujo AutoCAD (DWG). Permite el acceso al header del mismo, a las tablas de símbolos, a las tablas de registros de entidades y a los diferentes objetos que componen el dibujo.}
+
+\item{AutoDesk.AutoCAD.Geometry: esto modulo permite la interacción con el servicio de geometría de AutoCAD que se encarga de la gestión de las referencias espaciales.}
+
+\item{AutoDesk.AutoCAD.EditorInput: esto modulo permite la interacción con el editor a través del cual se realiza la interacción con el usuario en ambos sentidos.}
+
+\end{itemize}
+
+Los 3 módulos / elementos desarrollados son:
+
+\begin{itemize}
+
+\item{dwgElementos: este módulo contiene las clases necesarias para representar y almacenar en memoria la información contenida en un fichero con formato DWG. En concreto esta formado por las clases:}
+
+\begin{itemize}
+
+\item{dwgPunto}
+\item{dwgLinea}
+\item{dwgArco}
+\item{dwgPolylinea}
+\item{dwgCapa}
+\item{dwgFile}
+
+\end{itemize}
+
+\item{AutoDesk.AutoCAD.ApplicationServices: este módulo permite la interacción con la aplicación AutoCAD. Provee acceso a los módulos adicionales como el editor, el gestor de documentos, ventana principal, etc.}
+
+\item{AutoDesk.AutoCAD.DatabaseServices: esto módulo permite la interacción con el fichero de dibujo AutoCAD (DWG). Permite el acceso al header del mismo, a las tablas de símbolos, a las tablas de registros de entidades y a los diferentes objetos que componen el dibujo.}
+
+\item{AutoDesk.AutoCAD.Geometry: esto modulo permite la interacción con el servicio de geometría de AutoCAD que se encarga de la gestión de las referencias espaciales.}
+
+\item{AutoDesk.AutoCAD.EditorInput: esto modulo permite la interacción con el editor a través del cual se realiza la interacción con el usuario en ambos sentidos.}
+
+\end{itemize}
