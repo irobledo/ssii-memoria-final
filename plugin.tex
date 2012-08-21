@@ -1,0 +1,44 @@
+\section{¿Cómo trabaja un plugin para AutoCAD?.}
+
+La propia empresa AutoDesk proporciona los materiales necesarios para que sus usuarios desarrollen sus propios plugins y puedan personalizar y extender las funcionalidades de sus herramientas. Con un enfoque comercial muy interesante, si un usuario consigue sentirse comodo y personalizar una herramienta de forma sencilla, conseguiras retenerle de una forma simple y conseguir que continue trabajando con tu herramienta de forma sistemática en el tiempo.
+
+En concreto, la propia empresa AutoDesk justifica su elección de la plataforma .NET para dotar de estas capacidades al usuario de sus herramientas:
+
+\begin{itemize}
+
+\item{.NET es una herramienta de desarrollo estandarizada en el mercado y soportada por una gran compañía como es Microsoft.}
+
+\item{.NET proporciona una gran colección de librerias y métodos listos para ser usados dentro del entorno de ejecución de .NET}
+
+\item{Rápida curva de aprendizaje, en poco tiempo estas completando tus primeros desarrollos.}
+
+\item{Buen soporte de tipos: tipos básicos y tipos más complejos, como colecciones.}
+
+\item{Buen entorno de desarrollo, con sus versiones gratis y profesionales.}
+
+\end{itemize}
+
+La tecnología .NET es usada en la mayoría de los productos de la compañía AutoDesk. La mayoría de los productos exponen sus funcionalidades a través de una API bien documentada en tecnología .NET.
+
+El proceso de desarrollo es bastante sencillo. Tan solo hay que seguir los siguientes pasos:
+
+\begin{itemize}
+
+\item{Referenciar en el proyecto las dos librerias a través de las que el producto AutoCAD expone sus servicios al entorno .NET: AcDbMgd.dll y AcMgd.dll.}
+
+\item{Desarrollar el código del plugin con el lenguaje escogido y las librerias estandar proporcionadas por el entorno .NET, la API proporcionada por AutoCAD y cualquier API de terceros que se pueda necesitar.}
+
+\item{Compilar el proyecto y generar un ensamblado final con todos los componentes, archivo .DLL}
+
+\item{Cargar el ensamblado desde el entorno .NET a través del comando NETLOAD.}
+
+\item{Invocar el comando o comandos definidos en el plugin.}
+
+\end{itemize}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height=8cm]{imgs/plugin}
+\caption{Esquema del proceso de desarrollo de un plugin para AutoCAD.}
+\end{center}
+\end{figure}
