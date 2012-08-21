@@ -3,7 +3,7 @@ El Sistema Informático desarrollado se compone de 3 módulos / elementos que de
 
 \begin{itemize}
 
-\item{AutoDesk.AutoCAD.Runtime: este módulo inicializa los servicios de la aplicación cliente y las factorias que producen los diferentes objetos para ser utilizados dentro del entorno .NET.}
+\item{AutoDesk.AutoCAD.Runtime: este módulo inicializa los servicios de la aplicación cliente y las factorías que producen los diferentes objetos para ser utilizados dentro del entorno .NET.}
 
 \item{AutoDesk.AutoCAD.ApplicationServices: este módulo permite la interacción con la aplicación AutoCAD. Provee acceso a los módulos adicionales como el editor, el gestor de documentos, ventana principal, etc.}
 
@@ -26,9 +26,9 @@ Los 3 módulos / elementos desarrollados son:
 \item{dwgPunto: representa un punto de un plano de AutoCAD.}
 \item{dwgLinea: representa una línea de un plano de AutoCAD.}
 \item{dwgArco: representa un arco de un plano de AutoCAD. También contiene la representación equivalente del arco como un conjunto de líneas.}
-\item{dwgPolylinea: representa una polilinea de un plano de AutoCAd. También contiene la representación equivalente de la polilinea como un conjunto de líneas y arcos.}
+\item{dwgPolylinea: representa una polilínea de un plano de AutoCAd. También contiene la representación equivalente de la polilínea como un conjunto de líneas y arcos.}
 \item{dwgCapa: representa una capa de un plano de AutoCAD.}
-\item{dwgFile: representa un fichero DWG conteniendo toda la informaciónd del mismo relativa a capas, puntos, líneas, polilineas y arcos.}
+\item{dwgFile: representa un fichero DWG conteniendo toda la información del mismo relativa a capas, puntos, líneas, polilíneas y arcos.}
 
 \end{itemize}
 
@@ -50,7 +50,7 @@ A continuación se muestra un diagrama UML de este módulo dwgElementos:
 
 \end{itemize}
 
-\item{dwgDecoder: módulo principal que implementa el plugin de AutoCAD apoyándose en los dos módulos anteriores. A continuación se muestra un diagrama UML que realaciona todos los elementos:}
+\item{dwgDecoder: módulo principal que implementa el plugin de AutoCAD apoyándose en los dos módulos anteriores. A continuación se muestra un diagrama UML que relaciona todos los elementos:}
 
 \begin{figure}[H]
 \begin{center}
@@ -68,7 +68,7 @@ El proceso de decodificación se compone de 4 etapas. La primera de ellas corres
 \end{center}
 \end{figure}
 
-En una segunda etapa se examinan todas las capas existentes en el fichero y si el usuario ha indicado que quiere seleccionar manualmente las capas a procesar se le va preguntando por cada una ellas para que decida si su información debe ser interpretada. Si el usuario no ha indicado que quiere hacer una selección manual se obtiene e interpreta la información de todas las capas. A continuación se muestra el digrama de flujo correspondiente a esta etapa:
+En una segunda etapa se examinan todas las capas existentes en el fichero y si el usuario ha indicado que quiere seleccionar manualmente las capas a procesar se le va preguntando por cada una ellas para que decida si su información debe ser interpretada. Si el usuario no ha indicado que quiere hacer una selección manual se obtiene e interpreta la información de todas las capas. A continuación se muestra el diagrama de flujo correspondiente a esta etapa:
 
 \begin{figure}[H]
 \begin{center}
@@ -77,7 +77,7 @@ En una segunda etapa se examinan todas las capas existentes en el fichero y si e
 \end{center}
 \end{figure}
 
-En una tercera etapa se examinan todos objetos existentes dentro del fichero DWG. Si el objeto esta en una de las capas que debe ser procesada, se interpreta la información del objeto y se incorpora al contenido del objeto de tipo dwgFile. En el caso de los objetos polilínea y arco se descomponen en líneas simples antes de ser incorporados al objeto de tipo dwgFile. A continuación se muestra el digrama de flujo correspondiente a esta etapa:
+En una tercera etapa se examinan todos objetos existentes dentro del fichero DWG. Si el objeto esta en una de las capas que debe ser procesada, se interpreta la información del objeto y se incorpora al contenido del objeto de tipo dwgFile. En el caso de los objetos polilínea y arco se descomponen en líneas simples antes de ser incorporados al objeto de tipo dwgFile. A continuación se muestra el diagrama de flujo correspondiente a esta etapa:
 
 \begin{figure}[H]
 \begin{center}
