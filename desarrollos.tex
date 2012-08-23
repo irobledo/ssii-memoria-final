@@ -15,7 +15,7 @@ El Sistema Informático desarrollado se compone de 3 módulos / elementos que de
 
 \end{itemize}
 
-Los 3 módulos / elementos desarrollados son:
+Dado que se desarrolla una aplicación que es ejecutada dentro de otra aplicación se ha optado por un diseño muy sencillo, sin la aplicación de los clásicos patrones de diseño orientados a objetos que aportan capas y métodos para desacoplar los diferentes objetos, favoreciendo la reusabilidad y el mantenimiento. En este caso, la solución esta muy acoplada, con todos los objetos muy integrados haciéndola un poco más eficiente en tiempo de ejecución. Aunque esto puede hacer más complicado el mantenimiento y actualización de la misma, en realidad, este factor se ve minimizado dado que sólo 3 módulos / elementos los que se han desarrollado:
 
 \begin{itemize}
 
@@ -23,10 +23,10 @@ Los 3 módulos / elementos desarrollados son:
 
 \begin{itemize}
 
-\item{dwgPunto: representa un punto de un plano de AutoCAD.}
-\item{dwgLinea: representa una línea de un plano de AutoCAD.}
-\item{dwgArco: representa un arco de un plano de AutoCAD. También contiene la representación equivalente del arco como un conjunto de líneas.}
-\item{dwgPolylinea: representa una polilínea de un plano de AutoCAd. También contiene la representación equivalente de la polilínea como un conjunto de líneas y arcos.}
+\item{dwgPunto: representa un punto de un plano de AutoCAD. Sus miembros principales son las 3 coordenadas espaciales: X,Y,Z y el color con el que debe ser pintado.}
+\item{dwgLinea: representa una línea recta de un plano de AutoCAD. Sus miembros principales son el identificador del punto origen de la línea, el identificador del punto final de la línea, el ancho y el color con el que debe ser pintada.}
+\item{dwgArco: representa un arco de un plano de AutoCAD. Sus miembros principales son el identificador del punto central del arco, el ángulo inicial del mismo, el ángulo final y el radio. También contiene la asociación con el conjunto de líneas rectas equivalentes.}
+\item{dwgPolylinea: representa una polilínea de un plano de AutoCAD. Sus miembros principales son los que  contienen la asociación con el conjunto de líneas rectas y arcos equivalente.}
 \item{dwgCapa: representa una capa de un plano de AutoCAD.}
 \item{dwgFile: representa un fichero DWG conteniendo toda la información del mismo relativa a capas, puntos, líneas, polilíneas y arcos.}
 
@@ -37,7 +37,7 @@ Los 3 módulos / elementos desarrollados son:
 \begin{itemize}
 
 \item{herramientasCurvas: contiene las clases y métodos necesarios para transformar una curva en un conjunto de líneas rectas equivalentes.}
-\item{exportXMl: contiene las clases y métodos necesarios para exportar el contenido representado en memoria a través del módulo dwgElementos a un fichero de texto.}
+\item{exportXML: contiene las clases y métodos necesarios para exportar el contenido representado en memoria a través del módulo dwgElementos a un fichero de texto.}
 
 \end{itemize}
 
@@ -62,7 +62,7 @@ Toda la interacción con el usuario se realiza a través del módulo EditorInput
 \end{center}
 \end{figure}
 
-En una tercera etapa se examinan todos objetos existentes dentro del fichero DWG. Si el objeto esta en una de las capas que debe ser procesada, se interpreta la información del objeto y se incorpora al contenido del objeto de tipo dwgFile. En el caso de los objetos polilínea y arco se descomponen en líneas simples antes de ser incorporados al objeto de tipo dwgFile. A continuación se muestra el diagrama de flujo correspondiente a esta etapa:
+En una tercera etapa se examinan todos objetos existentes dentro del fichero DWG. Si el objeto esta en una de las capas que debe ser procesada, se interpreta la información del objeto y se incorpora al contenido del objeto de tipo dwgFile. En el caso de los objetos polilínea y arco se descomponen en líneas simples antes de ser incorporados al objeto de tipo dwgFile, manteniendo siempre la relación con el objeto inicial para que puedan ser analizadas y tratadas en conjunto. A continuación se muestra el diagrama de flujo correspondiente a esta etapa:
 
 \begin{figure}[H]
 \begin{center}
