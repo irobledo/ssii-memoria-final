@@ -32,15 +32,6 @@ Los 3 módulos / elementos desarrollados son:
 
 \end{itemize}
 
-A continuación se muestra un diagrama UML de este módulo dwgElementos:
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=0.65\textwidth]{imgs/dwgElementos}
-\caption{Diagrama UML del módulo dwgElementos.}
-\end{center}
-\end{figure}
-
 \item{dwgTools: este módulo contiene las clases de apoyo y herramientas necesarias para completar el proceso de extracción de la información del fichero DWG. En concreto, esta formado por las clases:}
 
 \begin{itemize}
@@ -50,15 +41,7 @@ A continuación se muestra un diagrama UML de este módulo dwgElementos:
 
 \end{itemize}
 
-\item{dwgDecoder: módulo principal que implementa el plugin de AutoCAD apoyándose en los dos módulos anteriores. A continuación se muestra un diagrama UML que relaciona todos los elementos:}
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=0.65\textwidth]{imgs/dwgDecoder}
-\caption{Diagrama UML del sistema dwgDecoder.}
-\end{center}
-\end{figure}
-
+\item{dwgDecoder: módulo principal que implementa el plugin de AutoCAD apoyándose en los dos módulos anteriores.
 El proceso de decodificación se compone de 4 etapas. La primera de ellas corresponde con la configuración del proceso donde se solicita al usuario si desea un log del proceso y el grado de detalle de la información del mismo, la ruta donde se almacenará el fichero de salida y si desea seleccionar manualmente las capas a incluir en el proceso de extracción. A continuación se muestra el diagrama de flujo correspondiente a esta etapa:
 
 \begin{figure}[H]
@@ -68,7 +51,9 @@ El proceso de decodificación se compone de 4 etapas. La primera de ellas corres
 \end{center}
 \end{figure}
 
-En una segunda etapa se examinan todas las capas existentes en el fichero y si el usuario ha indicado que quiere seleccionar manualmente las capas a procesar se le va preguntando por cada una ellas para que decida si su información debe ser interpretada. Si el usuario no ha indicado que quiere hacer una selección manual se obtiene e interpreta la información de todas las capas. A continuación se muestra el diagrama de flujo correspondiente a esta etapa:
+En una segunda etapa se examinan todas las capas existentes en el fichero y si el usuario ha indicado que quiere seleccionar manualmente las capas a procesar se le va preguntando por cada una ellas para que decida si su información debe ser interpretada. Si el usuario no ha indicado que quiere hacer una selección manual se obtiene e interpreta la información de todas las capas. 
+
+Toda la interacción con el usuario se realiza a través del módulo EditorInput que expone AutoCAD. Se informa al usario a través de un mensaje en la consola de la capa que va a ser procesada y se solicita que indique si desea incluirla o no en el proceso. Toda la recepción y validación de la información a través de la consola se realiza también con los servicios facilitados por el módulo EditorInput. A continuación se muestra el diagrama de flujo correspondiente a esta etapa:
 
 \begin{figure}[H]
 \begin{center}
@@ -86,6 +71,23 @@ En una tercera etapa se examinan todos objetos existentes dentro del fichero DWG
 \end{center}
 \end{figure}
 
-En una cuarta y última etapa se vuelca todo el contenido del objeto dwgFile a un fichero de texto en formato XML almacenándolo en la ruta indicada por el usuario durante el proceso de configuración del proceso de extracción.
+En una cuarta y última etapa se vuelca todo el contenido del objeto dwgFile a un fichero de texto en formato XML almacenándolo en la ruta indicada por el usuario durante el proceso de configuración del proceso de extracción. El formato de este fichero XML esta detallado en el apéndice 2 de este documento mediante el correspondiente XML Schema.
+}
 
 \end{itemize}
+
+A continuación se muestran los diagramas UML del módulo dwgElementos y del sistema completo con todos los elementos relacionados:
+
+\begin{sidewaysfigure}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{imgs/dwgElementos}
+\caption{Diagrama UML del módulo dwgElementos.}
+\end{center}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{imgs/dwgDecoder}
+\caption{Diagrama UML del sistema dwgDecoder.}
+\end{center}
+\end{sidewaysfigure}

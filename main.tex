@@ -5,17 +5,32 @@
 \usepackage{graphicx}
 \usepackage[left=2cm,right=2cm,top=2cm]{geometry}
 \usepackage{float}
+\usepackage{rotating}
+\usepackage{color}
+\usepackage{xcolor}
 \usepackage{listings}
+\usepackage{caption}
+%\usepackage{lscape}
 
 \renewcommand{\baselinestretch}{1.5}
 \addtolength{\parindent}{0pt}
 \addtolength{\parskip}{\baselineskip}
 \bibliographystyle{ieeetr}
 
+\lstset{
+% general command to set parameter(s)
+basicstyle=\ttfamily, % print whole listing small
+keywordstyle=\color{black}\bfseries\underbar, % underlined bold black keywords
+identifierstyle=, % nothing happens
+commentstyle=\color{white}, % white comments
+stringstyle=\ttfamily, % typewriter type for strings
+showstringspaces=false % no special string spaces
+}
+
 \title{Memoria Final - Sistemas Informáticos}
 \author{Ignacio Robledo Rosell \\
 				g990406}
-\date{22 de Agosto de 2012}
+\date{23 de Agosto de 2012}
 
 \includeonly{
 	introduccion,
@@ -26,7 +41,8 @@
 	desarrollos,
 	pruebas,
 	lineasFuturas,
-	ap1-ejemploUso
+	ap1-ejemploUso,
+	ap2-ejemploSalida
 }
 
 \begin{document}
@@ -44,7 +60,7 @@
 \include{pruebas}
 \include{lineasFuturas}
 \include{ap1-ejemploUso}
-%\include{ap2-ejemploSalida}
+\include{ap2-ejemploSalida}
 
 \newpage \bibliography{references}
 \newpage \listoffigures

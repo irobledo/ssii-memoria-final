@@ -28,6 +28,8 @@ El proceso de desarrollo es bastante sencillo. Tan solo hay que seguir los sigui
 
 \item{Desarrollar el código del plugin con el lenguaje escogido y las librerias estandar proporcionadas por el entorno .NET, la API proporcionada por AutoCAD y cualquier API de terceros que se pueda necesitar.}
 
+\item{No es necesario extender ninguna clase específica para crear el plugin. Cualquier clase pública es válida y tan sólo debe anotarse el método que vaya a contener toda la lógica del mismo con la anotación <<CommandMethod>>. Esta anotación permite a AutoCAD indentificar los nuevos comandos implementados en el plugin y hacerlos accesibles al usuario final.}
+
 \item{Compilar el proyecto y generar un ensamblado final con todos los componentes, archivo .DLL}
 
 \item{Cargar el ensamblado desde el entorno .NET a través del comando NETLOAD.}
@@ -39,6 +41,6 @@ El proceso de desarrollo es bastante sencillo. Tan solo hay que seguir los sigui
 \begin{figure}[H]
 \begin{center}
 \includegraphics[height=8cm]{imgs/plugin}
-\caption{Esquema del proceso de desarrollo de un plugin para AutoCAD.}
+\caption{Esquema del proceso de desarrollo de un plugin para AutoCAD \cite{AutoCAD-NET-API}.}
 \end{center}
 \end{figure}
